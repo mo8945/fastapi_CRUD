@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Modify</title>
+</head>
+<body>
+    <h1>Car Modify</h1>
+    <form method="post" action="/car/modify/{{ car.seq }}">
+        <div>seq: <input name="seq" value="{{ car.seq }}" readonly></div>
+        <div>name: <input name="name" value="{{ car.name }}"></div>
+        <div>price: <input name="price" type="number" value="{{ car.price }}"></div>
+        <div>company: <input name="company" value="{{ car.company }}"></div>
+        <div>year: <input name="year" type="number" value="{{ car.year }}"></div>
+        <button type="submit">수정</button>
+    </form>
+    <p><a href="/car/list"></a>목록으로</p>
+</body>
+</html>

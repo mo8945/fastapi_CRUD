@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+</head>
+<body>
+    <h1>Car List</h1>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>seq</th><th>name</th><th>price</th><th>company</th><th>year</th><th>action</th>
+        </tr>
+        {% for car in car_list %}
+        <tr>
+            <td>{{ car.seq }}</td>
+            <td>{{ car.name }}</td>
+            <td>{{ car.price }}</td>
+            <td>{{ car.company }}</td>
+            <td>{{ car.year }}</td>
+            <td>
+                <a href="/car/modify/{{ car.seq }}">modify</a>
+                <a href="/car/delete/{{ car.seq }}">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>신규 입력</h2>
+    <form method="post" action="/car/input">
+        <div>name: <input name="name"></div>
+        <div>price: <input name="price" type="number"></div>
+        <div>company: <input name="company"></div>
+        <div>year: <input name="year"></div>
+        <button type="submit">저장</button>
+    </form>
+</body>
+</html>
